@@ -11,6 +11,8 @@ require_relative 'models/post'
 namespace :db do
   desc "Seed Empty simple_blog2 Database"
   task :seed do
+    user0 = User.create(:last_name => "onimous", :first_name => "ann", :username => "anonymous")
+    puts "user #{user0.username} was created!"
     user1 = User.create(:last_name => "Abruzzi", :first_name => "Mario", :username => "abruzzi")
     puts "user #{user1.username} was created!"
     user2 = User.create(:last_name => "Ziecheck", :first_name => "Wendy", :username => "ziecheckw")
