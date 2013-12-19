@@ -9,6 +9,7 @@ require_relative 'config/environments'
 # models included
 require_relative 'models/post'
 require_relative 'models/user'
+require_relative 'models/comment'
 
 # enable sessions
 enable :sessions
