@@ -21,7 +21,7 @@ namespace :db do
     puts "user #{user3.username} was created!"
     user4 = User.create(:last_name => "Ramage", :first_name => "Ariel", :username => "ramagea")
     puts "user #{user4.username} was created!"
-    post = Post.create(:title => "Seed Post", :body => "I am part of your database from the start!")
+    post = Post.create(:title => "Seed Post", :body => "I am part of your database from the start!", user: user0)
     puts "post #{post.title} was created!"
   end
 end
