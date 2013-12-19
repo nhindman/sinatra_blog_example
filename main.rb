@@ -75,7 +75,13 @@ post '/posts/create' do
   # create_new_post(title, body)
   # user = User.find(user_id)
 
-  user = User.where("username='#{@username}'").first
+  user_matches = User.where("username='#{@username}'")
+
+  unless user_matches.empty?
+    user = user_matches.first
+  else
+    user = User.where("username='anonymous'")
+  end
 
   Post.create(title: title, body: body, user: user)
   redirect '/posts'
@@ -127,6 +133,16 @@ end
 # Session Routes
 
 post '/sessions/create' do 
-  session[:username] = params[:username]
+  username = params[:username]
+
+  user_matches = User.where("username='#{username}'")
+
+  unless user_matches.empty?
+    username = user_matches.first.username
+  else
+    username = "anonymous"
+  end
+
+  session[:username] = username
   redirect "/"
 end
