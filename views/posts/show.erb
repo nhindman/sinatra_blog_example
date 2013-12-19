@@ -3,5 +3,24 @@
   <p class="post_body">
     <%= @post.body %>
   </p>
+  <ul class="comments">
+    <% @post.comments.each do |comment| %>
+      <li class="comment">
+        <p class="comment_body"><%= comment.body %></p>
+        <p class="comment_author">by <%= comment.user.username %></p>
+        <p class="comment_created_at">at <%= comment.created_at %></p>
+      </li>
+    <% end %>
+  </ul>
+  <form action="/comments/create" method="POST">
+    <% if @username %>
+      <input type="hidden" name="username" value="<%= @username %>" />
+    <% else %>
+      <input type="hidden" name="username" value="anonymous" />
+    <% end %>
+    <input type="hidden" name="post_id" value="<%= @post.id %>">
+    <textarea name="body"></textarea>
+    <input type="submit" value="add comment" />
+  </form>
 </p>
 <a href="/posts">back</a>

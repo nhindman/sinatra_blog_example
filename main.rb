@@ -35,9 +35,7 @@ get '/post/:id' do
   @username = session[:username] if session[:username]
   id = params[:id].to_i
   @post = Post.find(id)
-  p "ID: #{id}"
-  p params
-  p @post
+
   erb :"posts/show"
 end
 
@@ -129,6 +127,21 @@ post '/users/create' do
 
 
   redirect '/'
+end
+
+# Comment Routes
+
+post "/comments/create" do 
+  body = params[:body]
+  username = params[:username]
+  post_id = params[:post_id].to_i
+  user = User.find_by_username(username) 
+  # a tiny bit of validation
+  user ||= User.find_by_username("anonymous")
+  post = Post.find(post_id)
+
+  Comment.create(body: body, user: user, post: post)
+  redirect "/post/#{post_id}"
 end
 
 # Session Routes

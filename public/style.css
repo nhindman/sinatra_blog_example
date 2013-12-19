@@ -42,3 +42,15 @@ body {
   padding: 10px;
   margin: 0;
 }
+
+.comments {
+  list-style-type: none;
+}
+
+.comment_body {
+  background-color: teal;
+  color: white;
+  width: 400px;
+  padding: 10px;
+  margin: 10px;
+}
