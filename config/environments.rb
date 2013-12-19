@@ -11,7 +11,7 @@ end
 
 configure :production do
   # HEROKU CONFIG 
-  db = URI.parse(ENV['HEROKU_POSTGRESQL_OLIVE_URL'])
+  db = URI.parse(ENV['HEROKU_POSTGRESQL_AQUA_URL'])
   #configuration info
   ActiveRecord::Base.establish_connection(
       :adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
