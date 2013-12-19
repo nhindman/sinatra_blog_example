@@ -1,0 +1,44 @@
+/* START RESET */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
+/* END RESET */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  background-color: pink;
+}
+
+#main_container {
+  width: 30%;
+  margin: 0 auto 0 auto;
+  background-color: teal;
+  padding: 0;
+}
+
+.main_heading {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#posts {
+  margin: 0;
+  padding: 10px;
+  list-style-type: none;
+}
+
+.post_title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.post {
+  margin: 10px 10px 30px 10px;
+  background-color: teal;
+}
+
+.post_new {
+  padding: 10px;
+  margin: 0;
+}

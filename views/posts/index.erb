@@ -1,0 +1,32 @@
+<div id="main_container">
+<h1 class="main_heading">Posts</h1>
+  <ul id="posts">
+  <% @posts.each do |post| %>
+    <li class="post">
+      <h2 class="post_title"><a href="/post/<%= post['id'] %>"><%= post['title'] %></a></h2>
+      <p>by <%= post.user.username %> </p>
+      <p>created at <%= post.created_at %> </p>
+      <p class="post_body"><%= post['body'] %></p>
+      <form action="/posts/delete/<%= post['id'] %>" method="POST">
+        <button>delete</button>
+      </form>
+      <form action="/posts/<%= post['id'] %>/edit" method="GET">
+        <button>edit</button>
+      </form>
+    </li>
+  <% end %>
+  <form action="/posts/create" method="POST" class="post_new">
+    <p>Title:<br><br />
+      <input type="text" name="title" />
+    <% if @username %>
+      <input type="hidden" name="username" value="<%= @username %>" />
+    <% else %>
+      <input type="hidden" name="username" value="anonymous" />
+    <% end %>
+    Body:<br />
+      <textarea name="body"></textarea>
+    </p>
+    <input type="submit" value="Post" />
+  </form>
+
+</div>

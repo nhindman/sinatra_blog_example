@@ -1,0 +1,12 @@
+<form action="/posts/update" method="POST" class="post_new">
+    <input type="hidden" name="id" value="<%= @post.id %>" />
+    <p>Title:<br>
+      <input type="text" name="title" value="<%= @post.title %>" />
+    </p>
+    <p>
+    Body:<br>
+      <textarea name="body"><%= @post.body %></textarea>
+    </p>
+    <input type="submit" value="Edit" />
+  </form>
+<a href="/">back</a>
